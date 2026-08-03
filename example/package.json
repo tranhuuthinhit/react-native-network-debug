@@ -1,0 +1,29 @@
+{
+  "name": "react-native-network-debug-example",
+  "description": "Example app for react-native-network-debug",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index",
+  "scripts": {
+    "android": "EXPO_NO_TYPESCRIPT_SETUP=1 expo start --android",
+    "ios": "EXPO_NO_TYPESCRIPT_SETUP=1 expo start --ios",
+    "web": "EXPO_NO_TYPESCRIPT_SETUP=1 expo start --web",
+    "start": "EXPO_NO_TYPESCRIPT_SETUP=1 expo start"
+  },
+  "dependencies": {
+    "expo": "~54.0.0",
+    "react": "19.1.0",
+    "react-native": "0.81.0",
+    "react-native-safe-area-context": "^5.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/runtime": "^7.28.6",
+    "@react-native/metro-config": "^0.81.0",
+    "babel-preset-expo": "^54.0.0",
+    "react-native-builder-bob": "^0.40.18"
+  },
+  "resolutions": {
+    "semver": "^7.5.4"
+  }
+}
