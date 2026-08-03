@@ -4,13 +4,7 @@ import type { SplitUrl } from './utils/splitUrl';
 export type Headers = { [header: string]: string };
 
 export type RequestMethod =
-  | 'GET'
-  | 'POST'
-  | 'PUT'
-  | 'PATCH'
-  | 'DELETE'
-  | 'HEAD'
-  | 'OPTIONS';
+  'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'HEAD' | 'OPTIONS';
 
 export const REQUEST_METHODS: RequestMethod[] = [
   'GET',

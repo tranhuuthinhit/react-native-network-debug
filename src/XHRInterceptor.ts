@@ -54,8 +54,7 @@ type ErrorCallback = (...args: any[]) => void;
 let originalXHROpen: typeof XMLHttpRequest.prototype.open | null = null;
 let originalXHRSend: typeof XMLHttpRequest.prototype.send | null = null;
 let originalXHRSetRequestHeader:
-  | typeof XMLHttpRequest.prototype.setRequestHeader
-  | null = null;
+  typeof XMLHttpRequest.prototype.setRequestHeader | null = null;
 
 // Callbacks
 const noop = () => {};
