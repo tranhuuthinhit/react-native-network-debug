@@ -1,6 +1,36 @@
 # Changelog
 
-## 1.0.0
+## 1.1.0
+
+First published release. Functionally identical to the 1.0.0 tag — the
+compiled `lib/**/*.js` and `lib/**/*.d.ts` are byte-for-byte the same —
+but 1.0.0 was never published to npm and its tag pointed at a commit
+that did not pass CI, so the release was cut again from a green tree.
+
+### Repository and CI
+
+- Commit `package-lock.json`. `actions/setup-node` with `cache: npm`
+  requires a lockfile and was aborting the job before any step ran.
+- Move `actions/checkout` and `actions/setup-node` to v5. v4 targets
+  Node 20, which GitHub deprecated on its runners in September 2025.
+- Pin the dev toolchain to exact versions. `prettier` was declared as
+  `^3.5.3`, so CI resolved 3.9.6 while the code had been formatted with
+  3.5.3, and 3.6 changed union-type layout — the formatting check failed
+  on two files nobody had edited. Prettier, ESLint and tsc decide whether
+  CI passes, so they are no longer on carets.
+- Install with `npm ci --ignore-scripts` so the `prepare` hook doesn't
+  build during install; the build is its own step, where a failure is
+  attributed correctly.
+- Add CI steps for formatting, `npm pack --dry-run`, and a toolchain
+  version dump so future drift is visible in the log.
+
+### Library
+
+- `LIB_VERSION` in `src/constant.ts` now supplies the `creator.version`
+  field of HAR exports, replacing a hardcoded string, with a test
+  asserting it matches `package.json`.
+
+## 1.0.0 (tagged, never published)
 
 First release. Forked from
 [`react-native-network-logger`](https://github.com/alexbrazier/react-native-network-logger)

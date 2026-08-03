@@ -1,3 +1,11 @@
+/**
+ * Stamped into the `creator` field of HAR exports so a shared archive
+ * says which version produced it. Must be kept in step with the
+ * `version` field in package.json — there is no way to read that at
+ * runtime without bundling the whole manifest into the app.
+ */
+export const LIB_VERSION = '1.1.0';
+
 // StartNetworkLoggingOptions
 export const LOGGER_MAX_REQUESTS: number = 500;
 export const LOGGER_REFRESH_RATE: number = 50;

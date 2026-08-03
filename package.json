@@ -1,7 +1,7 @@
 {
   "name": "react-native-network-debug",
-  "version": "1.0.0",
-  "description": "An in-app HTTP traffic inspector for React Native — zero dependencies, redesigned UI, RN 0.81+",
+  "version": "1.1.0",
+  "description": "An in-app HTTP traffic inspector for React Native \u2014 zero dependencies, redesigned UI, RN 0.81+",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
@@ -59,7 +59,7 @@
     "prepare": "bob build",
     "verify": "npm run typescript && npm run lint && npm test && npm run build"
   },
-  "_devDependenciesNote": "Pinned exactly, not with carets. Prettier, ESLint and tsc decide whether CI passes, so a caret lets a patch release break the build on code nobody touched — which is what happened when prettier 3.6 changed union-type formatting. Bump these deliberately.",
+  "_devDependenciesNote": "Pinned exactly, not with carets. Prettier, ESLint and tsc decide whether CI passes, so a caret lets a patch release break the build on code nobody touched \u2014 which is what happened when prettier 3.6 changed union-type formatting. Bump these deliberately.",
   "devDependencies": {
     "@babel/core": "7.28.4",
     "@react-native/babel-preset": "0.81.0",

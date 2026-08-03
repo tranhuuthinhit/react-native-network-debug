@@ -1,4 +1,5 @@
 import NetworkRequestInfo from '../NetworkRequestInfo';
+import { LIB_VERSION } from '../constant';
 
 /** HAR expects -1 for any timing it was not given. */
 const harTiming = (value?: number) =>
@@ -81,7 +82,7 @@ const createHar = async (requests: NetworkRequestInfo[]) => {
       version: '1.2',
       creator: {
         name: 'react-native-network-debug',
-        version: '1.0.0',
+        version: LIB_VERSION,
       },
       pages: [],
       entries: await Promise.all(requests.map(createHarEntry)),
