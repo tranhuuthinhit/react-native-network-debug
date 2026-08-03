@@ -10,24 +10,36 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # v5 runs on Node 24. v4 targets Node 20, which GitHub deprecated on
+      # its runners in September 2025.
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
+          # Requires package-lock.json to be committed, which it is.
           cache: npm
 
+      # --ignore-scripts skips the `prepare` hook so the build runs as its
+      # own step below, where a failure is attributed correctly.
       - name: Install dependencies
-        run: npm install --ignore-scripts --no-audit --no-fund
+        run: npm ci --ignore-scripts
 
       - name: Typecheck
         run: npm run typescript
 
       - name: Lint
-        run: npx eslint "src/**/*.{ts,tsx}"
+        run: npm run eslint
+
+      - name: Check formatting
+        run: npm run prettier
 
       - name: Test
         run: npm test -- --ci
 
       - name: Build
-        run: npx bob build
+        run: npm run build
+
+      # Catches a `files` field that would ship tests, or omit lib/.
+      - name: Verify package contents
+        run: npm pack --dry-run
