@@ -4,7 +4,7 @@
  * `version` field in package.json — there is no way to read that at
  * runtime without bundling the whole manifest into the app.
  */
-export const LIB_VERSION = '1.1.0';
+export const LIB_VERSION = '1.2.0';
 
 // StartNetworkLoggingOptions
 export const LOGGER_MAX_REQUESTS: number = 500;

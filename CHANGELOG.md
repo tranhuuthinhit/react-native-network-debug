@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.2.0
+
+Documentation only. No change to any shipped code — `lib/` is identical to
+1.1.0.
+
+- Add six screenshots of the redesigned interface (list, search, paused &
+  empty, detail Overview, detail Request, cURL) under `screenshots/`.
+  Referenced by absolute `raw.githubusercontent.com` URLs rather than
+  relative paths, because npm does not resolve relative image paths in a
+  README — relative links would render on GitHub but break on the npm
+  package page.
+- Add npm version, downloads, bundle size, zero-dependency, React Native
+  version, license and CI badges.
+- Add direct links to npm, GitHub, the changelog and the issue tracker.
+- Add a License section naming both copyright holders, and a Contributing
+  section explaining why the dev toolchain is pinned and why `npm ci` is
+  required rather than `npm install`.
+- Note in the timings section that the DNS/TCP/TLS rows visible in the
+  Overview screenshot are the design mock's sample data; a real capture
+  shows Queued / Waiting / Download only, since XHR cannot measure the
+  transport phases.
+
 ## 1.1.0
 
 First published release. Functionally identical to the 1.0.0 tag — the

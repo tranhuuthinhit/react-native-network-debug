@@ -1,7 +1,20 @@
 # react-native-network-debug
 
+[![npm version](https://img.shields.io/npm/v/react-native-network-debug.svg)](https://www.npmjs.com/package/react-native-network-debug)
+[![npm downloads](https://img.shields.io/npm/dm/react-native-network-debug.svg)](https://www.npmjs.com/package/react-native-network-debug)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/react-native-network-debug)](https://bundlephobia.com/package/react-native-network-debug)
+[![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](https://www.npmjs.com/package/react-native-network-debug?activeTab=dependencies)
+[![React Native](https://img.shields.io/badge/react--native-%E2%89%A5%200.81-61dafb.svg)](https://reactnative.dev)
+[![license](https://img.shields.io/npm/l/react-native-network-debug.svg)](./LICENSE)
+[![CI](https://github.com/tranhuuthinhit/react-native-network-debug/actions/workflows/ci.yml/badge.svg)](https://github.com/tranhuuthinhit/react-native-network-debug/actions/workflows/ci.yml)
+
 An in-app HTTP traffic inspector for React Native. Zero dependencies, dark
 developer-tool UI, built for React Native **0.81 and above**.
+
+**[npm](https://www.npmjs.com/package/react-native-network-debug)** ·
+**[GitHub](https://github.com/tranhuuthinhit/react-native-network-debug)** ·
+**[Changelog](./CHANGELOG.md)** ·
+**[Issues](https://github.com/tranhuuthinhit/react-native-network-debug/issues)**
 
 A redesigned fork of
 [`react-native-network-logger`](https://github.com/alexbrazier/react-native-network-logger)
@@ -9,6 +22,32 @@ by [@alexbrazier](https://github.com/alexbrazier) (MIT). The capture engine is
 inherited; the interface is a ground-up rebuild against a formal design handoff.
 
 ---
+
+## Screenshots
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tranhuuthinhit/react-native-network-debug/main/screenshots/01-list.png" width="240" alt="Request list with per-row waterfall bars and tri-tone URLs" />
+  <img src="https://raw.githubusercontent.com/tranhuuthinhit/react-native-network-debug/main/screenshots/02-search.png" width="240" alt="Search with URL, Headers and Body scopes and inline match highlighting" />
+  <img src="https://raw.githubusercontent.com/tranhuuthinhit/react-native-network-debug/main/screenshots/03-paused-empty.png" width="240" alt="Paused capture banner and empty state" />
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tranhuuthinhit/react-native-network-debug/main/screenshots/04-detail-overview.png" width="240" alt="Detail Overview tab with stat cards and timing breakdown" />
+  <img src="https://raw.githubusercontent.com/tranhuuthinhit/react-native-network-debug/main/screenshots/05-detail-request.png" width="240" alt="Detail Request tab with redacted headers and JSON body" />
+  <img src="https://raw.githubusercontent.com/tranhuuthinhit/react-native-network-debug/main/screenshots/06-detail-curl.png" width="240" alt="cURL tab with format chips, redaction and copy toast" />
+</p>
+
+<p align="center">
+  <sub>
+    List · Search · Paused &amp; empty &nbsp;|&nbsp;
+    Detail Overview · Detail Request · cURL
+  </sub>
+</p>
+
+Note the details these are meant to show: the URL is never truncated in the
+list but split into three colour tiers, every row carries a waterfall bar
+encoding start offset and duration, `Authorization` renders as
+`Bearer ••••••••••••••••3f9a` with a `redacted` badge, and the cURL tab's
+`Redact` toggle has swapped the token for `$TOKEN`.
 
 ## Why this fork
 
@@ -191,6 +230,9 @@ The timing card renders whatever phases are present, so if you later supply
 DNS/TCP/TLS from a native module they slot in without a UI change. HAR exports
 write `-1` for the phases we don't have, which is what the HAR spec asks for.
 
+> The DNS/TCP/TLS rows visible in the Overview screenshot come from the design
+> mock's sample data. A real capture shows Queued / Waiting / Download only.
+
 ## Theming
 
 The full token set is exported as `ThemeColors` — surfaces, the six-step text
@@ -236,6 +278,17 @@ is a single density.
 
 Works on the New Architecture and the legacy one; there is no native code.
 
+## Contributing
+
+```sh
+npm ci                # not `npm install` — the dev toolchain is pinned exactly
+npm run verify        # typecheck + lint + format check + tests + build
+```
+
+The formatter, linter and compiler are pinned to exact versions on purpose: they
+decide whether CI passes, so a caret would let an upstream patch release break
+the build on code nobody touched.
+
 ## Credits
 
 Capture engine forked from
@@ -244,4 +297,7 @@ by Alex Brazier, MIT licensed. Interface rebuilt from a design handoff.
 
 ## License
 
-MIT
+[MIT](./LICENSE) © 2020 Alex Brazier, © 2026 Tran Huu Thinh
+
+This project is a fork; the original copyright notice is retained in
+[`LICENSE`](./LICENSE) as the MIT License requires.
